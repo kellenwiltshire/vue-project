@@ -36,7 +36,7 @@
 
 <script>
 export default {
-	props: ['addToCart'],
+	props: ['addToCart', 'product'],
 	data() {
 		return {
 			quantity: 0,
