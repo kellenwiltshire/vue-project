@@ -18,7 +18,13 @@
 		</div>
 	</header>
 	<router-view :inventory="inventory" :addToCart="addToCart" />
-	<SidebarComponent v-if="showSidebar" :toggle="toggleSidebar" :cart="cart" :inventory="inventory" :remove="remove" />
+	<SidebarComponent
+		v-if="showSidebar"
+		:toggle="toggleSidebar"
+		:cart="cart"
+		:inventory="inventory"
+		:remove="removeItem"
+	/>
 </template>
 
 <script>
