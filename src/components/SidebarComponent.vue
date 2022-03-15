@@ -27,9 +27,11 @@
 							<td>{{ key }}</td>
 							<td>${{ getPrice(key) }}</td>
 							<td class="center">{{ quantity }}</td>
-							<td>${{ quantity * getPrice(key) }}</td>
+							<td>${{ (quantity * getPrice(key)).toFixed(2) }}</td>
 							<td class="center">
-								<button @click="remove(key)" class="btn btn-light cart-remove">&times;</button>
+								<button @click="remove(key)" class="btn btn-light cart-remove">
+									&times;
+								</button>
 							</td>
 						</tr>
 					</tbody>
@@ -39,7 +41,7 @@
 					<em>No items in cart</em>
 				</p>
 				<div class="spread">
-					<span><strong>Total:</strong> ${{ calulateTotal() }}</span>
+					<span><strong>Total:</strong> $ {{ calculateTotal() }}</span>
 					<button class="btn btn-light">Checkout</button>
 				</div>
 			</div>
@@ -51,17 +53,18 @@
 export default {
 	props: ['toggle', 'cart', 'inventory', 'remove'],
 	methods: {
+		calculateTotal() {
+			let total = 0;
+			total = Object.entries(this.cart).reduce((acc, curr) => {
+				return acc + curr[1] * this.getPrice(curr[0]);
+			}, 0);
+			return total.toFixed(2);
+		},
 		getPrice(name) {
 			const product = this.inventory.find((p) => {
 				return p.name === name;
 			});
 			return product.price.USD;
-		},
-		calculateTotal() {
-			const total = Object.entries(this.cart).reduce((acc, curr) => {
-				return acc + curr[1] * this.getPrice(curr[0]);
-			}, 0);
-			return total.toFixed(2);
 		},
 	},
 };

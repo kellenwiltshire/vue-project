@@ -29,7 +29,9 @@
 			</form>
 		</div>
 		<div class="card-footer">
-			<button @click="addToCart(product.name, quantity)" class="btn btn-light">Add to cart</button>
+			<button @click="addToCart(product.name, quantity)" class="btn btn-light">
+				Add to cart
+			</button>
 		</div>
 	</div>
 </template>
