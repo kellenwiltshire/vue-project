@@ -1,19 +1,13 @@
-# vue-project2
+# Free Code Camp Vue Project
 
-## Project setup
-```
-npm install
-```
+A quick Vue project I did with the help of Free Code Camp to build basic Vue knowledge.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Deployment
 
-### Compiles and minifies for production
-```
-npm run build
-```
+To deploy this project run
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```bash
+  npm install
+
+  vue-cli-service serve
+```
